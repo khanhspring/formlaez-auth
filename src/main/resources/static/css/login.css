@@ -1,0 +1,211 @@
+:root {
+	--font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+	--body-bg: #F9FAFB;
+}
+
+* {
+	font-family: var(--font-family);
+	color: #181C32;
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	background: var(--body-bg);
+}
+
+.spinner {
+	display: inline-block;
+	border: 2px solid #f3f3f3; /* Light grey */
+	border-top: 2px solid #3498db; /* Blue */
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.text-center {
+	text-align: center;
+}
+
+.login-page {
+	padding: 30px;
+}
+
+.login-header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+.login-header a img {
+	width: 57px;
+}
+
+.login-form-wrapper {
+	margin: auto;
+	max-width: 470px;
+	padding: 45px 45px;
+	box-shadow: 0 0.1rem 1rem 0.25rem rgb(0 0 0 / 5%) !important;
+	border-radius: 0.65rem !important;
+	background: #fff;
+}
+.form-title {
+	margin-bottom: 30px;
+}
+.form-title h1 {
+	margin-top: 0;
+	margin-bottom: 13px;
+	font-size: 23px;
+	color: #181c32;
+}
+.form-title .create-account-title {
+	color: #7e8299;
+	font-size: 16px;
+}
+.form-title .create-account-title a {
+	color: #009EF7;
+	text-decoration: none;
+}
+.form-title .create-account-title a:hover {
+	color: #33b1f9;
+}
+
+
+.form-messages .alert{
+	width: 100%;
+	margin-bottom: 23px;
+	font-size: 13px;
+	color: #181C32;
+	padding: 14px 20px;
+	border-radius: 3px;
+}
+.form-messages .alert-danger{
+	background: #F7D9E3;
+}
+.form-messages .alert-success{
+	background: #CBF0F4;
+}
+
+
+
+.form-group {
+	margin-bottom: 25px;
+}
+
+.form-label-row{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.form-label-row a {
+	margin-bottom: 7px;
+	color: #009EF7;
+	text-decoration: none;
+	font-size: 13px;
+}
+.form-label-row a:hover {
+	color: #33b1f9;
+}
+.form-label {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	margin-bottom: 7px;
+}
+.form-control {
+	display: block;
+	box-shadow: none;
+	width: 100%;
+	line-height: 1.5;
+	background-clip: padding-box;
+	border: 1px solid #E4E6EF;
+	appearance: none;
+	padding: 10px 15px;
+	font-size: 15px;
+	border-radius: 3px;
+	outline: none;
+}
+
+.or-label {
+	margin-bottom: 17px;
+	color: #A1A5B7;
+	text-transform: uppercase;
+	font-size: 13px;
+}
+
+.btn {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	align-items: center;
+	padding: 0 15px;
+	line-height: 44px;
+	width: 100%;
+	border-radius: 3px;
+	font-size: 15px;
+	border: none;
+	cursor: pointer;
+	background: #009EF7;
+	color: #fff;
+	margin-bottom: 17px;
+	transition: background-color 0.2s;
+}
+.btn:hover {
+	background: #0095E8;
+}
+.btn span {
+	color: #fff;
+	font-size: 15px;
+}
+
+a.btn {
+	text-decoration: none;
+}
+
+.btn img {
+	height: 23px;
+}
+.btn-submit {
+	margin-top: 30px;
+}
+
+.btn-submit .indicator-label{
+	display: block;
+}
+.btn-submit .indicator-progress{
+	display: none;
+}
+.btn-submit.loading .indicator-label{
+	display: none;
+}
+.btn-submit.loading .indicator-progress{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:  10px;
+}
+.btn-social {
+	background: #F5F8FA;
+	color: #7E8299;
+}
+.btn-social:hover {
+	background: #EFF2F5;
+}
+
+
+.login-footer {
+	margin-top: 60px;
+}
+.login-footer-content {
+	margin: auto;
+	width: 400px;
+}
+.login-footer-content p {
+	font-size: 12.5px;
+	color: #7E8299;
+	line-height: 20px;
+	text-align: center;
+}

@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - preConditions:
+      - onFail: WARN
+      - sqlCheck:
+          expectedResult: 0
+          sql: select count(*) from DATABASECHANGELOGLOCK
+  - include:
+      file: db/changelog/history/changelog-0.0.1.yaml

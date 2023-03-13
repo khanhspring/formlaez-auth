@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgresql:5432/formlaez_auth
+    username: postgres
+    password: 6*[)s8G'Vs#rQUsm
+  security:
+    oauth2:
+      client:
+        registration:
+          google-idp:
+            provider: google
+            client-id: 473688848749-lulji83js58lhgggqe6jh9npl39g67r8.apps.googleusercontent.com
+            client-secret: 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
+            scope: openid, https://www.googleapis.com/auth/userinfo.profile, https://www.googleapis.com/auth/userinfo.email
+            client-name: Sign in with Google
+            redirect-uri: https://auth.formlaez.com/login/oauth2/code/google-idp
+          github-idp:
+            provider: github
+            client-id: 62e22acca0a0b9e284f3
+            client-secret: cc8f40b830189e3670d48e8cad9561d9628dcd0a
+            scope: user:email, read:user
+            client-name: Sign in with GitHub
+        provider:
+          google:
+            user-name-attribute: email
+          github:
+            user-name-attribute: email
+  thymeleaf:
+    cache: false
+
+formlaez:
+  oauth2:
+    issuer: https://auth.formlaez.com
+    default-client: formlaez-web
+    clients:
+      - id: formlaez-web
+        rawSecret: 1234567a@#
+        redirectUris: https://app.formlaez.com/login/code
+        refreshTokenTimeToLiveInSeconds: 36000
+        accessTokenTimeToLiveInSeconds: 36000
+
+  client:
+    formlaez-services:
+      baseUrl: http://formlaez-services:8080/internal
+      authorization: Basic Zm9ybWxhZXotYXV0aDpmMHJtTEBleg==

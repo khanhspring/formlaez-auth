@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ez Apps</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="apps-page">
+    <div class="header-wrapper">
+        <div class="header">
+            <div class="header-menu">
+                <a href="#" class="logo">
+                    <img th:src="@{/images/ez-logo.svg}">
+                </a>
+                <a href="#" class="apps-menu menu-item active">
+                    Apps
+                </a>
+            </div>
+            <div class="header-actions">
+                <a th:href="@{/logout}" class="logout-btn">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-wrapper">
+        <h2 class="text-center">Featured Apps</h2>
+        <div class="apps">
+            <div class="card">
+                <div class="card-body">
+                    <h3>
+                        <img th:src="@{/images/formlaez-logo.svg}" />
+                    </h3>
+                    <p>
+                        Online forms builder and documents merge
+                    </p>
+                    <div class="card-actions">
+                        <a href="https://app.formlaez.com" class="btn primary">Try now</a>
+                        <a href="https://formlaez.com" class="btn">Learn more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <span>Comming soon...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

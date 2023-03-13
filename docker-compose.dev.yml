@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+
+  formlaez-auth-server:
+    image: formlaez-auth-server
+    build:
+      context: .
+    environment:
+      ACTIVE_PROFILE: dev
+    ports:
+      - "9000:9000"
+    networks:
+      - formlaez-net
+
+networks:
+  formlaez-net:
+    external: true

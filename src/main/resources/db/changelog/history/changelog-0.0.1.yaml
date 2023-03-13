@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.1__001__create_tables_oauth2
+      author: khanhspring
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: db/changelog/scripts/0.0.1__001__init_oauth2.sql
+
+  - changeSet:
+      id: 0.0.1__002__create_table_user.sql
+      author: khanhspring
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: db/changelog/scripts/0.0.1__002__create_table_user.sql

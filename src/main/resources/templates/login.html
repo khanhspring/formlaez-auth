@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ez Account</title>
+	<link th:href="@{/css/login.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="login-page">
+	<div class="login-header mb-12">
+		<a href="#">
+			<img th:src="@{/images/ez-logo.svg}">
+		</a>
+	</div>
+	<div class="login-form-wrapper container-fluid">
+		<div class="login-form">
+			<form method="post" th:action="@{/login}">
+				<div class="form-title text-center">
+					<h1 class="title">Sign in to Workflowlaez</h1>
+					<div class="create-account-title">New Here? <a href="#">Create an Account</a></div>
+				</div>
+
+				<div class="form-messages">
+					<div th:if="${param.error}" class="alert alert-danger" role="alert">
+						Invalid username or password.
+					</div>
+					<div th:if="${param.logout}" class="alert alert-success" role="alert">
+						You have been logged out.
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="form-label">Email</label>
+					<input class="form-control" type="text" id="username" name="username" autocomplete="off" placeholder="email@example.com" required>
+					<div class="message-container invalid-feedback"></div>
+				</div>
+
+				<div class="form-group">
+					<div class="form-label-row">
+						<label class="form-label">Password</label>
+						<a href="#">Forgot password?</a>
+					</div>
+					<input class="form-control" type="password" id="password" name="password" autocomplete="off" placeholder="password" required>
+					<div class="message-container invalid-feedback"></div>
+				</div>
+
+				<div class="text-center">
+					<button type="submit" class="btn btn-submit">
+						<span class="indicator-label">Continue</span>
+						<span class="indicator-progress">Please wait... 
+							<i class="spinner"></i>
+						</span>
+					</button>
+
+					<div class="text-center or-label">or</div>
+
+					<a href="/oauth2/authorization/google-idp" class="btn btn-social">
+						<img alt="Logo" th:src="@{/images/google-icon.svg}">Continue with Google
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="login-footer">
+		<div class="login-footer-content">
+			<p>
+				By clicking "Continue" or "Continue with Google/Facebook" above, you acknowledge that you have read and understood, and agree to <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.
+			</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
