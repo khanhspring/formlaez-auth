@@ -34,8 +34,8 @@ formlaez:
       - id: formlaez-web
         rawSecret: 1234567a@#
         redirectUris: http://127.0.0.1:3000/login/code
-        refreshTokenTimeToLiveInSeconds: 36000
-        accessTokenTimeToLiveInSeconds: 36000
+        refreshTokenTimeToLiveInSeconds: 604800
+        accessTokenTimeToLiveInSeconds: 604800
 
   client:
     formlaez-services:

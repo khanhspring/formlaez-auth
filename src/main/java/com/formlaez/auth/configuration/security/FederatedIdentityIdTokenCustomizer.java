@@ -68,6 +68,7 @@ public class FederatedIdentityIdTokenCustomizer implements OAuth2TokenCustomizer
 			existingClaims.put("uid", user.getId());
 			existingClaims.put("first_name", user.getFirstName());
 			existingClaims.put("last_name", user.getLastName());
+			existingClaims.put("email", user.getEmail());
 		});
 
 		if (OidcParameterNames.ID_TOKEN.equals(context.getTokenType().getValue())) {

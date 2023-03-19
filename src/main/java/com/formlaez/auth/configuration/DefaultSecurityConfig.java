@@ -1,9 +1,7 @@
 package com.formlaez.auth.configuration;
 
-import com.formlaez.auth.client.FormlaezServicesClient;
 import com.formlaez.auth.configuration.security.FederatedIdentityConfigurer;
 import com.formlaez.auth.configuration.security.UserRepositoryOAuth2UserHandler;
-import com.formlaez.auth.repository.JpaUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
