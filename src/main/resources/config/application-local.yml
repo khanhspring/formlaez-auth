@@ -26,6 +26,14 @@ spring:
             user-name-attribute: email
   thymeleaf:
     cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
+      cache:
+        period: 0
 
 formlaez:
   oauth2:
