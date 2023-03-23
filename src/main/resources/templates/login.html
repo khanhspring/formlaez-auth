@@ -13,8 +13,8 @@
 		<div class="login-form">
 			<form method="post" th:action="@{/login}">
 				<div class="form-title text-center">
-					<h1 class="title">Sign in to Formify</h1>
-					<div class="create-account-title">New Here? <a href="#">Create an Account</a></div>
+					<h1 class="title">Sign in to Formini</h1>
+					<div class="create-account-title">New Here? <a th:href="${@environment.getProperty('formlaez.signUpUrl')}">Create an Account</a></div>
 				</div>
 
 				<div class="form-messages">
@@ -61,7 +61,7 @@
 	<div class="login-footer">
 		<div class="login-footer-content">
 			<span>2023©</span>
-			<a href="https://formlaez.com" rel="noreferrer" target="_blank" className="hover:text-sky-500">Formlaez.com</a>
+			<a href="https://formini.so" rel="noreferrer" target="_blank" className="hover:text-sky-500">Formini.so</a>
 		</div>
 	</div>
 </div>

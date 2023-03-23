@@ -28,7 +28,7 @@ public class AuthController {
 		return "redirect:/oauth2/authorize?response_type=code&client_id="
 				+ client.getClientId()
 				+ "&redirect_uri=" + redirectUris.iterator().next()
-				+ "&state=" + state;
+				+ "&state=" + Objects.requireNonNullElse(state, "");
 	}
 
 }

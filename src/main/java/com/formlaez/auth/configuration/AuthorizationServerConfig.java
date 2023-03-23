@@ -2,6 +2,7 @@ package com.formlaez.auth.configuration;
 
 import com.formlaez.auth.configuration.jose.Jwks;
 import com.formlaez.auth.configuration.property.AppOAuth2ClientProperties;
+import com.formlaez.auth.configuration.property.BasicAuthProperties;
 import com.formlaez.auth.configuration.security.FederatedIdentityConfigurer;
 import com.formlaez.auth.configuration.security.FederatedIdentityIdTokenCustomizer;
 import com.formlaez.auth.repository.JpaOauth2RegisteredClientRepository;
@@ -20,6 +21,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,6 +37,7 @@ import org.springframework.security.oauth2.server.authorization.config.annotatio
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.util.ObjectUtils;
 
@@ -102,5 +106,23 @@ public class AuthorizationServerConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public InMemoryUserDetailsManager inMemoryUserDetailsManager(BasicAuthProperties basicAuthProperties) {
+        if (ObjectUtils.isEmpty(basicAuthProperties.getUsers())) {
+            return new InMemoryUserDetailsManager();
+        }
+
+        var userDetails = new InMemoryUserDetailsManager();
+        for (var basicAuthUser: basicAuthProperties.getUsers()) {
+            UserDetails user = User.builder()
+                    .username(basicAuthUser.getUsername())
+                    .password(basicAuthUser.getPassword())
+                    .roles(basicAuthUser.getRoles().toArray(String[]::new))
+                    .build();
+            userDetails.createUser(user);
+        }
+        return userDetails;
     }
 }

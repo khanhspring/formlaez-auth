@@ -13,7 +13,7 @@ spring:
             client-secret: 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
             scope: openid, https://www.googleapis.com/auth/userinfo.profile, https://www.googleapis.com/auth/userinfo.email
             client-name: Sign in with Google
-            redirect-uri: https://auth.formlaez.com/login/oauth2/code/google-idp
+            redirect-uri: ${formlaez.authUrl}/login/oauth2/code/google-idp
           github-idp:
             provider: github
             client-id: 62e22acca0a0b9e284f3
@@ -29,13 +29,16 @@ spring:
     cache: false
 
 formlaez:
+  domainName: formini.so
+  authUrl: https://auth.${formlaez.domainName}
+  appUrl: https://app.${formlaez.domainName}
   oauth2:
-    issuer: https://auth.formlaez.com
+    issuer: ${formlaez.authUrl}
     default-client: formlaez-web
     clients:
       - id: formlaez-web
         rawSecret: 1234567a@#
-        redirectUris: https://app.formlaez.com/login/code
+        redirectUris: ${formlaez.appUrl}/login/code
         refreshTokenTimeToLiveInSeconds: 604800
         accessTokenTimeToLiveInSeconds: 604800
 
@@ -43,3 +46,11 @@ formlaez:
     formlaez-services:
       baseUrl: http://formlaez-services:8080/internal
       authorization: Basic Zm9ybWxhZXotYXV0aDpmMHJtTEBleg==
+
+  signUpUrl: ${formlaez.appUrl}/sign-up
+
+  basic-auth:
+    users:
+      - username: formlaez-services
+        password: "$2a$10$ZkVufhbhMwdbAg74OIB0FuhjDUMsZWB3ses4NydeqBh8KYdLluVMa"
+        roles: "Admin"

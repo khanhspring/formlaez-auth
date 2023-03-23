@@ -36,12 +36,16 @@ spring:
         period: 0
 
 formlaez:
+  domainName: 127.0.0.1
+  authUrl: http://${formlaez.domainName}:9000
+  appUrl: http://${formlaez.domainName}:3000
   oauth2:
+    issuer: ${formlaez.authUrl}
     default-client: formlaez-web
     clients:
       - id: formlaez-web
         rawSecret: 1234567a@#
-        redirectUris: http://127.0.0.1:3000/login/code
+        redirectUris: ${formlaez.appUrl}/login/code
         refreshTokenTimeToLiveInSeconds: 604800
         accessTokenTimeToLiveInSeconds: 604800
 
@@ -49,3 +53,15 @@ formlaez:
     formlaez-services:
       baseUrl: http://localhost:8080/internal
       authorization: Basic Zm9ybWxhZXotYXV0aDpmMHJtTEBleg==
+
+  signUpUrl: ${formlaez.appUrl}/sign-up
+
+  basic-auth:
+    users:
+      - username: formlaez-services
+        password: "$2a$10$ZkVufhbhMwdbAg74OIB0FuhjDUMsZWB3ses4NydeqBh8KYdLluVMa"
+        roles: "Admin"
+
+logging:
+  level:
+    root: info
